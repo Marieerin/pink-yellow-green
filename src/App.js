@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Shape from './Shape'
+import Counter from './Counter'
 import './App.css';
 
 function App() {
+  const [correctCounter, setCorrectCounter] = useState(0);
+  const [errorCounter, setErrorCounter] = useState(0);
+  const [totalTriesCounter, setTotalTriesCounter] = useState(0);
+
   const [currentWord, setCurrentWord] = useState({
     hex: '#72d979',
     name: 'pink'
@@ -27,6 +32,7 @@ function App() {
     const color1 = keys[Math.floor(Math.random() * keys.length)];
     const color2 = keys[Math.floor(Math.random() * keys.length)];
     const colorArray =[{hex: colors[color0], name: color0}, {hex: colors[color1], name: color1}, {hex: colors[color2], name: color2}];
+    
     const randomName = colorArray[Math.floor(Math.random() * 2)];
     const randomHex = colorArray[Math.floor(Math.random() * 2)];
 
@@ -36,17 +42,38 @@ function App() {
         hex: `${randomHex.hex}`,
         name: `${randomName.name}`
       });
+    proofColors(color0, color1, color2, randomHex, randomName);
+  };
+
+  const proofColors = (color0, color1, color2, hex, name) => {
+    if (color0 === color2 || color0 === color1 || color1 === color2){
+        colorRandomizer();
+      };
+
+    if (hex === name) {
+      colorRandomizer();
+    };
   };
 
   const shapeClicker = (color) => {
-    console.log(color, currentWord.name);
+    const totalTries = totalTriesCounter + 1;
+    setTotalTriesCounter(totalTries);
     if (color === currentWord.name){
+      const correct = correctCounter + 1;
       colorRandomizer();
+      setCorrectCounter(correct);
+    } else {
+      const wrong = errorCounter + 1;
+      setErrorCounter(wrong);
     }
+    
+
+    console.log(totalTriesCounter, errorCounter, correctCounter );
   };
 
   return (
-    <div className="App">
+    <div id="App">
+      <Counter wins={correctCounter} loss={errorCounter} total={totalTriesCounter} /> 
       <div id="wordBox">
         <span style={{color:`${currentWord.hex}`}}>{currentWord.name}</span>
       </div>
@@ -56,6 +83,7 @@ function App() {
             <Shape color={shapeColor.hex} name={shapeColor.name} key={i} shapeClicker={shapeClicker}  />
           );
         })}
+
       </div>
     </div>
   );
