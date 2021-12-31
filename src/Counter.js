@@ -4,19 +4,25 @@ const Counter = (props) => {
     return(
         <div id="counter">
             <div className="score">
-                Correct
+                <h3>
+                    Correct
+                </h3>
                 <span>
                     {props.wins}
                 </span>
             </div>
             <div className="score">
-                Errors
+                <h3>
+                    Errors
+                </h3>
                 <span>
                     {props.loss}
                 </span>
             </div>
             <div className="score">
-                Total
+                <h3>
+                    Total
+                </h3>
                 <span>
                     {props.total}
                 </span>
