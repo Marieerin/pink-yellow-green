@@ -1,6 +1,8 @@
 import React from "react";
+import Messages from "./Messages"
 
 const Counter = (props) => {
+
     return(
         <div id="counter">
             <div className="score">
@@ -27,6 +29,7 @@ const Counter = (props) => {
                     {props.total}
                 </span>
             </div>
+            <Messages total={props.total} loss={props.loss} wins={props.wins} />
         </div>
     )
 };
