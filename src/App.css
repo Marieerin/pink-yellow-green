@@ -140,3 +140,11 @@ button {
   padding: 15px;
   margin: 20px;
 }
+
+.messageBox {
+  background-color: #72d979;
+  color: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+}
