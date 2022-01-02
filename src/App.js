@@ -80,7 +80,7 @@ function App() {
       <div id="wordBox">
         <span style={{color:`${currentWord.hex}`}}>{currentWord.name}</span>
       </div>
-      <div id='shapeBox'>
+      <div id='shapeBox' >
         {colorArr.map((shapeColor, i)=> {
           return (
             <Shape color={shapeColor.hex} name={shapeColor.name} key={i} shapeClicker={shapeClicker}  />

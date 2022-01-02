@@ -29,7 +29,7 @@ const Counter = (props) => {
                     {props.total}
                 </span>
             </div>
-            <Messages total={props.total} loss={props.loss} wins={props.wins} />
+             <Messages total={props.total} loss={props.loss} wins={props.wins}  />
         </div>
     )
 };

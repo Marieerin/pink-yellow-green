@@ -17,7 +17,6 @@ html {
   text-transform: capitalize;
 }
 
-
 #wordBox, #shapeBox, #App, #modal, .score, html {
   display: flex;
   align-items: center;
@@ -60,8 +59,7 @@ button,
 #modal, 
 #shapeBox, 
 #wordBox {
-  border-radius: 5px;
-
+  border-radius: 12px;
 }
 
 #counter {
